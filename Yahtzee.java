@@ -22,6 +22,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			playerNames[i - 1] = dialog.readLine("Enter name for player " + i);
 		}
 		display = new YahtzeeDisplay(getGCanvas(), playerNames);
+		scCategories = new int[nPlayers][N_CATEGORIES];
 		playGame();
 	}
 
@@ -73,7 +74,15 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		return dice;
 	}
 	
-
+/**
+ * Returns whether a category is available to score for a given player
+ * @param plyr Player number
+ * @param cat Category number
+ * @return True if category is available, else false
+ */
+	private boolean catAvail(int plyr, int cat) {
+		
+	}
 		
 /* Private instance variables */
 	private int nPlayers;
@@ -82,4 +91,5 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	private RandomGenerator rgen = new RandomGenerator();
 	private int[] dice = new int[N_DICE];
 	private int[] scCats = new int[N_SCORING_CATEGORIES];
+	private int[][] scCategories;
 }
