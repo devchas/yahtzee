@@ -295,6 +295,9 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		return score;
 	}
 	
+/**
+ * Determines player with highest score and displays victory message
+ */
 	private void endGame() {
 		int winner = 0;
 		for (int i = 1; i < nPlayers; i++) {
