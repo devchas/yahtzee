@@ -181,6 +181,11 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		}
 	}
 	
+/**
+ * Checks for a small or large straight and returns the appropriate score
+ * @param cat Category for small or large straight
+ * @return Score
+ */
 	private int straightScore(int cat) {
 		boolean[] numStr = new boolean[N_DICE];
 		// Number of starting points needed to check (e.g. only 1-5 and 2-6 for large straight)
