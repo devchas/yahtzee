@@ -98,7 +98,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		display.printMessage(SEL_CAT_MSG);
 		while(true) {
 			// Subtract 1 to align response with array
-			scCat = display.waitForPlayerToSelectCategory() - 1;
+			scCat = display.waitForPlayerToSelectCategory();
 			if (catAvail(plyr, scCat)) break;
 			display.printMessage(SEL_DIF_CAT_MSG);
 		}
