@@ -72,7 +72,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 				upBonus[plyr] = 0;
 			}
 		} else {
-			lowScore[plyr - 1] += score;
+			lowScore[plyr] += score;
 			display.updateScorecard(LOWER_SCORE, plyr, lowScore[plyr]);
 		}
 		totScore[plyr] = upScore[plyr] + upBonus[plyr] + lowScore[plyr];
@@ -113,7 +113,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		int score = calcScore(scCat);
 		display.updateScorecard(scCat, plyr, score);
 		isCatSet[plyr - 1][scCat] = true;
-		updateTotals(plyr, scCat - 1, score);
+		updateTotals(plyr - 1, scCat - 1, score);
 	}
 	
 // Returns an array of the rolled dice results
