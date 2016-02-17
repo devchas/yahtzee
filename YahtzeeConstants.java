@@ -51,9 +51,10 @@ public interface YahtzeeConstants {
 /** Maximum rolls per player */
 	public static final int MAX_ROLLS = 3;
 	
-/** The points and point multiples rewarded for different rolls */
-	public static final int TRIPS_MULTIPLE = 3;
-	public static final int QUADS_MULTIPLE = 4;
+/** Difference between match score and index above */
+	public static final int MATCH_DELTA = 6;
+	
+/** The points rewarded for different rolls */
 	public static final int FULL_HOUSE_PTS = 25;
 	public static final int SM_STAIGHT_PTS = 30;
 	public static final int LG_STRAIGHT_PTS = 40;
