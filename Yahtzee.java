@@ -181,6 +181,11 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		}
 	}
 	
+/**
+ * Checks to see if there are exactly n dice with the same number
+ * @param n Number of dice threshold
+ * @return True if there are n dice with the same number, else false
+ */
 	private boolean checkExact(int n) {
 		for (int i = 0; i < N_DICE - n + 1; i++) {
 			int cnt = 0;
