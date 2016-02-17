@@ -22,8 +22,18 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			playerNames[i - 1] = dialog.readLine("Enter name for player " + i);
 		}
 		display = new YahtzeeDisplay(getGCanvas(), playerNames);
-		scCategories = new int[nPlayers][N_CATEGORIES];
+		isCatSet = new boolean[nPlayers][N_CATEGORIES];
+		initCats();
 		playGame();
+	}
+	
+// Inititalizes all category values for all players to false
+	private void initCats() {
+		for (int i = 0; i < nPlayers; i++) {
+			for (int j = 0; j < N_CATEGORIES; j++) {
+				isCatSet[i][j] = false;
+			}
+		}
 	}
 
 	private void playGame() {
@@ -95,5 +105,5 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	private RandomGenerator rgen = new RandomGenerator();
 	private int[] dice = new int[N_DICE];
 	private int[] scCats = new int[N_SCORING_CATEGORIES];
-	private int[][] scCategories;
+	private boolean[][] isCatSet;
 }
