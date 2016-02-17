@@ -116,6 +116,17 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			case SIXES:
 				return singlesScore(cat);
 			case THREE_OF_A_KIND:
+			case FOUR_OF_A_KIND:
+				return matchScore(cat - MATCH_DELTA);
+			case FULL_HOUSE:
+				return fullHouseScore();
+			case SMALL_STRAIGHT:
+			case LARGE_STRAIGHT:
+				return straightScore(cat);
+			case YAHTZEE:
+				return yahtzeeScore();
+			case CHANCE:
+				return chanceScore();
 		}
 	}
 		
