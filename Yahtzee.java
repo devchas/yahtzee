@@ -81,7 +81,11 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @return True if category is available, else false
  */
 	private boolean catAvail(int plyr, int cat) {
-		
+		if (scCategories[plyr][cat] == null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 		
 /* Private instance variables */
