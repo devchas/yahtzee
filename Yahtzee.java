@@ -174,11 +174,45 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		boolean dbl = false;
 		trip = checkExact(3);
 		dbl = checkExact(2);
-		if (trip && dub) {
+		if (trip && dbl) {
 			return FULL_HOUSE_PTS;
 		} else {
 			return 0;
 		}
+	}
+	
+	private int straightScore(int cat) {
+		boolean[] numStr = new boolean[N_DICE];
+		int checkStr;
+		if (cat == SMALL_STRAIGHT) {
+			checkStr = 3;
+			dice[N_DICE - 1] = true;
+		} else {
+			checkStr = 2;
+		}
+		// Checks possible straight combinations
+		for (int i = 0; i < checkStr; i++) {
+			boolean isStraight = false;
+			// Set all placeholders to false
+			for (int j = 0; j < N_DICE; j++) {
+				numStr[j] = false;
+			}
+			// Set a given placeholder to true if value hits
+			for (int j = 0; i < N_DICE; j++) {
+				if (dice[j] == i) numStr[0] = true;
+				if (dice[j] == i + 1) numStr[1] = true;
+				if (dice[j] == i + 2) numStr[2] = true;
+				if (dice[j] == i + 3) numStr[3] = true;
+				if (dice[j] == i + 4) numStr[4] = true;
+			}
+			// Checks if all placeholders are true
+			for (int j = 0; j < N_DICE; j++) {
+				isStraight = numStr[j];
+				if (isStraight == false) break;
+			}
+			if (isStraight) return true;
+		}
+		return false;
 	}
 	
 /**
