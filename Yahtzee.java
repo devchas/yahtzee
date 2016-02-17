@@ -303,7 +303,6 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	private YahtzeeDisplay display;
 	private RandomGenerator rgen = new RandomGenerator();
 	private int[] dice = new int[N_DICE];
-	private int[] scCats = new int[N_SCORING_CATEGORIES];
 	private boolean[][] isCatSet;
 	private int[] upScore;
 	private int[] upBonus;
