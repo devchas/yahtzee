@@ -249,7 +249,6 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		int strScore;
 		if (cat == SMALL_STRAIGHT) {
 			checkStr = 3;
-			numStr[N_DICE - 1] = true;
 			strScore = SM_STAIGHT_PTS;
 		} else {
 			checkStr = 2;
@@ -270,6 +269,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 				if (dice[j] == i + 3) numStr[3] = true;
 				if (dice[j] == i + 4) numStr[4] = true;
 			}
+			if (cat == SMALL_STRAIGHT) numStr[N_DICE - 1] = true;
 			// Checks if all placeholder are true
 			for (int j = 0; j < N_DICE; j++) {
 				isStraight = numStr[j];
