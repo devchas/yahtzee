@@ -85,7 +85,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  */
 	private void enactTurn(int plyr) {
 		int scCat;
-		display.printMessage(playerNames[plyr] + PLYR_ROLL_MSG);
+		display.printMessage(playerNames[plyr - 1] + PLYR_ROLL_MSG);
 		display.waitForPlayerToClickRoll(plyr);
 		// Loops through all of player's rolls
 		for (int i = 0; i < MAX_ROLLS; i++) {
