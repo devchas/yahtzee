@@ -254,7 +254,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 				numStr[j] = false;
 			}
 			// Set a given placeholder to true if value hits
-			for (int j = 0; i < N_DICE; j++) {
+			for (int j = 0; j < N_DICE; j++) {
 				if (dice[j] == i) numStr[0] = true;
 				if (dice[j] == i + 1) numStr[1] = true;
 				if (dice[j] == i + 2) numStr[2] = true;
