@@ -182,6 +182,22 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	}
 	
 /**
+ * Checks to see if there are exactly n dice with the same number
+ * @param n Number of dice threshold
+ * @return True if there are n dice with the same number, else false
+ */
+	private boolean checkExact(int n) {
+		for (int i = 0; i < N_DICE - n + 1; i++) {
+			int cnt = 0;
+			for (int j = i + 1; j < N_DICE; j++) {
+				if (dice[i] ==  dice[j]) cnt++;
+			}
+			if (n == cnt) return true;
+		}
+		return false;
+	}	
+	
+/**
  * Checks for a small or large straight and returns the appropriate score
  * @param cat Category for small or large straight
  * @return Score
@@ -225,20 +241,17 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	}
 	
 /**
- * Checks to see if there are exactly n dice with the same number
- * @param n Number of dice threshold
- * @return True if there are n dice with the same number, else false
+ * Checks for yahtzee and returns appropriate score
+ * @return Score
  */
-	private boolean checkExact(int n) {
-		for (int i = 0; i < N_DICE - n + 1; i++) {
-			int cnt = 0;
-			for (int j = i + 1; j < N_DICE; j++) {
-				if (dice[i] ==  dice[j]) cnt++;
-			}
-			if (n == cnt) return true;
+	private int yahtzeeScore() {
+		// Return 0 if any die value does not equal that of prior die
+		for (int i = 1; i < N_DICE; i++) {
+			if (dice[i] != dice[i-1]) return 0;
 		}
-		return false;
+		return YAHTZEE_PTS;
 	}
+
 		
 /* Private instance variables */
 	private int nPlayers;
