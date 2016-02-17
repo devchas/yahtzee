@@ -43,6 +43,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @param plyr Player number
  */
 	private void enactTurn(int plyr) {
+		int scCat;
 		display.printMessage(playerNames[plyr] + PLYR_ROLL_MSG);
 		// Loops through all of player's rolls
 		for (int i = 0; i < MAX_ROLLS; i++) {
@@ -55,12 +56,12 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		display.printMessage(SEL_CAT_MSG);
 		while(true) {
 			// Subtract 1 to align response with array
-			int scCat = display.waitForPlayerToSelectCategory() - 1;
+			scCat = display.waitForPlayerToSelectCategory() - 1;
 			if (catAvail(plyr, scCat)) break;
 			display.printMessage(SEL_DIF_CAT_MSG);
 		}
 		display.updateScorecard(scCat, plyr, calcScore(scCat));
-		
+		display.updateScorecard(TOTAL, plyr, totalScore(plyr));
 	}
 		
 /* Private instance variables */
