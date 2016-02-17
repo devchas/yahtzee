@@ -62,7 +62,7 @@ public interface YahtzeeConstants {
 	public static final int UP_BONUS_PTS = 35;
 	
 /** Messages displayed during game */
-	public static final String PLYR_ROLL_MSG = " turn. Click \"Roll Dice\" button to roll the dice.";
+	public static final String PLYR_ROLL_MSG = "'s turn. Click \"Roll Dice\" button to roll the dice.";
 	public static final String RE_ROLL_MSG = "Select the dice you wish to re-roll and click \"Roll Again\".";
 	public static final String SEL_CAT_MSG = "Select a category for this roll.";
 	public static final String SEL_DIF_CAT_MSG = "That category has already been used. Select a different category.";
