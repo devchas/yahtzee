@@ -22,9 +22,16 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			playerNames[i - 1] = dialog.readLine("Enter name for player " + i);
 		}
 		display = new YahtzeeDisplay(getGCanvas(), playerNames);
+		upScore = new int[nPlayers];
+		upBonus = new int[nPlayers];
+		lowScore = new int[nPlayers];
 		isCatSet = new boolean[nPlayers][N_CATEGORIES];
 		initCats();
 		playGame();
+	}
+	
+	private int totalScore(int plyr) {
+		return upScore[plyr] + upBonus[plyr] + lowScore[plyr];
 	}
 	
 // Initializes all category values for all players to false
@@ -273,4 +280,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	private int[] dice = new int[N_DICE];
 	private int[] scCats = new int[N_SCORING_CATEGORIES];
 	private boolean[][] isCatSet;
+	private int[] upScore;
+	private int[] upBonus;
+	private int[] lowScore;
 }
