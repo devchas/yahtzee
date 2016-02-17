@@ -65,12 +65,12 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			if (upScore[plyr - 1] >= UP_BONUS_THRESH) {
 				if (isCatSet[plyr - 1][UPPER_BONUS] == false) {
 					upBonus[plyr - 1] = UP_BONUS_PTS;
-					display.updateScorecard(UPPER_BONUS, plyr, UP_BONUS_PTS);
 					isCatSet[plyr - 1][UPPER_BONUS] = true;
-				}
-			} else {
-				upBonus[plyr - 1] = 0;
+				} else {
+					upBonus[plyr - 1] = 0;
+				} 
 			}
+			display.updateScorecard(UPPER_BONUS, plyr, upBonus[plyr - 1]);
 		} else {
 			lowScore[plyr - 1] += score;
 			display.updateScorecard(LOWER_SCORE, plyr, lowScore[plyr - 1]);
