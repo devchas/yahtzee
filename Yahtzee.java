@@ -59,7 +59,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		// Loops through all of player's rolls
 		for (int i = 0; i < MAX_ROLLS; i++) {
 			display.waitForPlayerToClickRoll(plyr);
-			display.displayDice(rollDice());
+			display.displayDice(rollDice(i));
 			display.waitForPlayerToClickRoll(plyr);
 			display.printMessage(RE_ROLL_MSG);
 		}
@@ -77,10 +77,13 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	}
 	
 // Returns an array of the rolled dice results
-	private int[] rollDice() {
+	private int[] rollDice(int roll) {
 		for (int i = 0; i < N_DICE; i++) {
-			// Need to check if first roll accounts for selected dice
-			if (display.isDieSelected(i)) dice[i] = rgen.nextInt(DIE_LOW, DIE_HIGH);
+			if (roll == 0) {
+				dice[i] = rgen.nextInt(DIE_LOW, DIE_HIGH);
+			} else if (display.isDieSelected(i)){
+				dice[i] = rgen.nextInt(DIE_LOW, DIE_HIGH);
+			}
 		}
 		return dice;
 	}
