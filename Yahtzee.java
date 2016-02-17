@@ -63,6 +63,17 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		display.updateScorecard(scCat, plyr, calcScore(scCat));
 		display.updateScorecard(TOTAL, plyr, totalScore(plyr));
 	}
+	
+// Returns an array of the rolled dice results
+	private int[] rollDice() {
+		for (int i = 0; i < N_DICE; i++) {
+			// Need to check if first roll accounts for selected dice
+			if (display.isDieSelected(i)) dice[i] = rgen.nextInt(DIE_LOW, DIE_HIGH);
+		}
+		return dice;
+	}
+	
+
 		
 /* Private instance variables */
 	private int nPlayers;
