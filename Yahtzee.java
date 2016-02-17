@@ -25,22 +25,10 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		upScore = new int[nPlayers];
 		upBonus = new int[nPlayers];
 		lowScore = new int[nPlayers];
+		totScore = new int[nPlayers];
 		isCatSet = new boolean[nPlayers][N_CATEGORIES];
 		initCats();
 		playGame();
-	}
-	
-	private int totalScore(int plyr) {
-		return upScore[plyr] + upBonus[plyr] + lowScore[plyr];
-	}
-	
-// Initializes all category values for all players to false
-	private void initCats() {
-		for (int i = 0; i < nPlayers; i++) {
-			for (int j = 0; j < N_CATEGORIES; j++) {
-				isCatSet[i][j] = false;
-			}
-		}
 	}
 
 	private void playGame() {
@@ -53,6 +41,42 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			}
 			calcFinalScores();
 			endGame();
+		}
+	}
+	
+/**
+ * Updates lower, upper, upper bonus and total scores
+ * @param plyr Player
+ * @param cat Selected scoring category
+ * @param score Score achieved for selected category
+ */
+	private void updateTotals(int plyr, int cat, int score) {
+		if (cat < UPPER_SCORE) {
+			upScore[plyr] += score;
+			display.updateScorecard(UPPER_SCORE, plyr, upScore[plyr]);
+			if (upScore[plyr] >= UP_BONUS_THRESH) {
+				if (isCatSet[plyr][UPPER_BONUS] == false) {
+					upBonus[plyr] = UP_BONUS_PTS;
+					display.updateScorecard(UPPER_BONUS, plyr, UP_BONUS_PTS);
+					isCatSet[plyr][UPPER_BONUS] = true;
+				}
+			} else {
+				upBonus[plyr] = 0;
+			}
+		} else {
+			lowScore[plyr] += score;
+			display.updateScorecard(LOWER_SCORE, plyr, lowScore[plyr]);
+		}
+		totScore[plyr] = upScore[plyr] + upBonus[plyr] + lowScore[plyr];
+		display.updateScorecard(TOTAL, plyr, totScore[plyr]);
+	}
+	
+// Initializes all category values for all players to false
+	private void initCats() {
+		for (int i = 0; i < nPlayers; i++) {
+			for (int j = 0; j < N_CATEGORIES; j++) {
+				isCatSet[i][j] = false;
+			}
 		}
 	}
 	
@@ -78,9 +102,10 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			if (catAvail(plyr, scCat)) break;
 			display.printMessage(SEL_DIF_CAT_MSG);
 		}
-		display.updateScorecard(scCat, plyr, calcScore(scCat));
+		int score = calcScore(scCat);
+		display.updateScorecard(scCat, plyr, score);
 		isCatSet[plyr][scCat] = true;
-		display.updateScorecard(TOTAL, plyr, totalScore(plyr));
+		updateTotals(plyr, scCat, score);
 	}
 	
 // Returns an array of the rolled dice results
@@ -283,4 +308,5 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	private int[] upScore;
 	private int[] upBonus;
 	private int[] lowScore;
+	private int[] totScore;
 }
