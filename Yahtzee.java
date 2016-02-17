@@ -128,7 +128,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	private boolean catAvail(int plyr, int cat) {
 		if (cat == UPPER_SCORE || cat == UPPER_BONUS || cat == LOWER_SCORE || cat == TOTAL) {
 			return false;
-		} else if (!isCatSet[plyr][cat]) {
+		} else if (!isCatSet[plyr + 1][cat]) {
 			return true;
 		} else {
 			return false;
