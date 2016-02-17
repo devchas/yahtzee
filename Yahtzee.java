@@ -26,6 +26,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		upBonus = new int[nPlayers];
 		lowScore = new int[nPlayers];
 		totScore = new int[nPlayers];
+		initPts();
 		isCatSet = new boolean[nPlayers][N_CATEGORIES];
 		initCats();
 		playGame();
@@ -40,6 +41,14 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 				enactTurn(i);
 			}
 			endGame();
+		}
+	}
+	
+	private void initPts() {
+		for (int i = 0; i < nPlayers; i++) {
+			upBonus[i] = 0;
+			lowScore[i] = 0;
+			totScore[i] = 0;
 		}
 	}
 	
