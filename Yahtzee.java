@@ -72,6 +72,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			display.printMessage(SEL_DIF_CAT_MSG);
 		}
 		display.updateScorecard(scCat, plyr, calcScore(scCat));
+		isCatSet[plyr][scCat] = true;
 		display.updateScorecard(TOTAL, plyr, totalScore(plyr));
 	}
 	
@@ -91,7 +92,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @return True if category is available, else false
  */
 	private boolean catAvail(int plyr, int cat) {
-		if (scCategories[plyr][cat] == null) {
+		if (!isCatSet[plyr][cat]) {
 			return true;
 		} else {
 			return false;
