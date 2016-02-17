@@ -93,7 +93,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @param plyr Player number
  */
 	private void enactTurn(int plyr) {
-		plyr--;
+		plyr -= 1;
 		int scCat;
 		display.printMessage(playerNames[plyr] + PLYR_ROLL_MSG);
 		display.waitForPlayerToClickRoll(plyr);
