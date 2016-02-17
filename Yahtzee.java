@@ -251,6 +251,14 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		}
 		return YAHTZEE_PTS;
 	}
+	
+	private int chanceScore() {
+		int score = 0;
+		for (int i = 0; i < N_DICE; i++) {
+			score += dice[i];
+		}
+		return score;
+	}
 
 		
 /* Private instance variables */
