@@ -92,7 +92,9 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @return True if category is available, else false
  */
 	private boolean catAvail(int plyr, int cat) {
-		if (!isCatSet[plyr][cat]) {
+		if (cat == UPPER_SCORE || cat == UPPER_BONUS || cat == LOWER_SCORE || cat == TOTAL) {
+			return false;
+		} else if (!isCatSet[plyr][cat]) {
 			return true;
 		} else {
 			return false;
@@ -105,7 +107,16 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @return Score
  */
 	private int calcScore(int cat) {
-		
+		switch (cat) {
+			case ONES:
+			case TWOS:
+			case THREES:
+			case FOURS:
+			case FIVES:
+			case SIXES:
+				return singlesScore(cat);
+			case THREE_OF_A_KIND:
+		}
 	}
 		
 /* Private instance variables */
