@@ -256,7 +256,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			strScore = LG_STRAIGHT_PTS;
 		}
 		// Checks possible straight combinations
-		for (int i = 0; i < checkStr; i++) {
+		for (int i = 1; i <= checkStr; i++) {
 			boolean isStraight = false;
 			// Set all placeholder to false
 			for (int j = 0; j < N_DICE; j++) {
