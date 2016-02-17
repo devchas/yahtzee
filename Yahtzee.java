@@ -148,6 +148,11 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		return score;
 	}
 	
+/**
+ * Returns the score for 3 or 4 of a kind selection
+ * @param thresh Minimum threshold for getting same number on dice
+ * @return Score
+ */
 	private int matchScore(int thresh) {
 		for (int i = 0; i < N_DICE - thresh + 1; i++) {
 			int cnt = 0;
@@ -157,6 +162,34 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			if (cnt >= thresh) return dice[i] * thresh;
 		}
 		return 0;
+	}
+	
+/**
+ * Checks for full house and gives appropriate score
+ * @return Score
+ */
+	private int fullHouseScore() {
+		if (yahtzeeScore() > 0) return FULL_HOUSE_PTS;
+		boolean trip = false;
+		boolean dbl = false;
+		trip = checkExact(3);
+		dbl = checkExact(2);
+		if (trip && dub) {
+			return FULL_HOUSE_PTS;
+		} else {
+			return 0;
+		}
+	}
+	
+	private boolean checkExact(int n) {
+		for (int i = 0; i < N_DICE - n + 1; i++) {
+			int cnt = 0;
+			for (int j = i + 1; j < N_DICE; j++) {
+				if (dice[i] ==  dice[j]) cnt++;
+			}
+			if (n == cnt) return true;
+		}
+		return false;
 	}
 		
 /* Private instance variables */
