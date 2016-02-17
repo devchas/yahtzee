@@ -127,7 +127,22 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 				return yahtzeeScore();
 			case CHANCE:
 				return chanceScore();
+			default:
+				return 0;
 		}
+	}
+	
+/**
+ * Returns the score for a given singles category (ONES - SIXES)
+ * @param cat Category
+ * @return Score
+ */
+	private int singlesScore(int cat) {
+		int score = 0;
+		for (int i = 0; i < N_DICE; i++) {
+			if (dice[i] == cat) score += cat;
+		}
+		return score;
 	}
 		
 /* Private instance variables */
