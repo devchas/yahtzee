@@ -103,7 +103,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		}
 		int score = calcScore(scCat);
 		display.updateScorecard(scCat, plyr, score);
-		isCatSet[plyr][scCat] = true;
+		isCatSet[plyr - 1][scCat] = true;
 		updateTotals(plyr, scCat, score);
 	}
 	
