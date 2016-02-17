@@ -252,6 +252,10 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		return YAHTZEE_PTS;
 	}
 	
+/**
+ * Returns chance score (sum of all dice values)
+ * @return Score
+ */
 	private int chanceScore() {
 		int score = 0;
 		for (int i = 0; i < N_DICE; i++) {
