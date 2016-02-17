@@ -39,7 +39,6 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			for (int i = 0; i < nPlayers; i++) {
 				enactTurn(i);
 			}
-			calcFinalScores();
 			endGame();
 		}
 	}
@@ -294,6 +293,14 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			score += dice[i];
 		}
 		return score;
+	}
+	
+	private void endGame() {
+		int winner = 0;
+		for (int i = 1; i < nPlayers; i++) {
+			if (totScore[i] > totScore[winner]) winner = i;
+		}
+		display.printMessage("Congratulations, " + playerNames[winner] + ", you're the winner with a total score of " + totScore[winner] + "!");
 	}
 
 		
