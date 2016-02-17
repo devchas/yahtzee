@@ -98,6 +98,15 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			return false;
 		}
 	}
+	
+/**
+ * Returns the score given the dice state and category selected
+ * @param cat Category selected
+ * @return Score
+ */
+	private int calcScore(int cat) {
+		
+	}
 		
 /* Private instance variables */
 	private int nPlayers;
