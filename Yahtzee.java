@@ -27,7 +27,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		playGame();
 	}
 	
-// Inititalizes all category values for all players to false
+// Initializes all category values for all players to false
 	private void initCats() {
 		for (int i = 0; i < nPlayers; i++) {
 			for (int j = 0; j < N_CATEGORIES; j++) {
