@@ -60,22 +60,22 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  */
 	private void updateTotals(int plyr, int cat, int score) {
 		if (cat < UPPER_SCORE) {
-			upScore[plyr] += score;
-			display.updateScorecard(UPPER_SCORE, plyr, upScore[plyr]);
-			if (upScore[plyr] >= UP_BONUS_THRESH) {
-				if (isCatSet[plyr][UPPER_BONUS] == false) {
-					upBonus[plyr] = UP_BONUS_PTS;
+			upScore[plyr - 1] += score;
+			display.updateScorecard(UPPER_SCORE, plyr, upScore[plyr - 1]);
+			if (upScore[plyr - 1] >= UP_BONUS_THRESH) {
+				if (isCatSet[plyr - 1][UPPER_BONUS] == false) {
+					upBonus[plyr - 1] = UP_BONUS_PTS;
 					display.updateScorecard(UPPER_BONUS, plyr, UP_BONUS_PTS);
-					isCatSet[plyr][UPPER_BONUS] = true;
+					isCatSet[plyr - 1][UPPER_BONUS] = true;
 				}
 			} else {
-				upBonus[plyr] = 0;
+				upBonus[plyr - 1] = 0;
 			}
 		} else {
 			lowScore[plyr - 1] += score;
 			display.updateScorecard(LOWER_SCORE, plyr, lowScore[plyr - 1]);
 		}
-		totScore[plyr] = upScore[plyr] + upBonus[plyr] + lowScore[plyr];
+		totScore[plyr - 1] = upScore[plyr - 1] + upBonus[plyr - 1] + lowScore[plyr - 1];
 		display.updateScorecard(TOTAL, plyr, totScore[plyr]);
 	}
 	
