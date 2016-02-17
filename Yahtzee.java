@@ -36,7 +36,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		while(true) {
 			turn++;
 			if (turn > N_SCORING_CATEGORIES) break;
-			for (int i = 0; i < nPlayers; i++) {
+			for (int i = 1; i <= nPlayers; i++) {
 				enactTurn(i);
 			}
 			endGame();
