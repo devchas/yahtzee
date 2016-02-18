@@ -314,9 +314,9 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  */
 	private void endGame() {
 		int winner = 0;
-		/*for (int i = 0; i < nPlayers; i++) {
+		for (int i = 0; i < nPlayers; i++) {
 			if (upBonus[i] == 0) display.updateScorecard(UPPER_BONUS, i + 1, 0);
-		}*/
+		}
 		for (int i = 1; i < nPlayers; i++) {
 			if (totScore[i] > totScore[winner]) winner = i;
 		}
