@@ -35,8 +35,8 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			for (int i = 1; i <= nPlayers; i++) {
 				enactTurn(i);
 			}
-			endGame();
 		}
+		endGame();
 	}
 	
 // Initializes point totals to 0
