@@ -220,7 +220,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @return True if there are n dice with the same number, else false
  */
 	private boolean checkExact(int n) {
-		int cnt = 0;
+		int cnt = 1;
 		for (int i = 0; i < N_DICE - n + 1; i++) {
 			for (int j = i + 1; j < N_DICE; j++) {
 				if (dice[i] ==  dice[j]) cnt++;
