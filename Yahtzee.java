@@ -230,6 +230,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			}
 			if (n == cnt) {
 				return true;
+			// Ensures match of greater than n doesn't hit midway through dice eval
 			} else if (cnt >= n) {
 				xclud = dice[i];
 			}
