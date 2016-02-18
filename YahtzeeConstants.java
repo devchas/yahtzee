@@ -8,10 +8,10 @@
 public interface YahtzeeConstants {
 
 /** The width of the application window */
-	public static final int APPLICATION_WIDTH = 1200;
+	public static final int APPLICATION_WIDTH = 600;
 
 /** The height of the application window */
-	public static final int APPLICATION_HEIGHT = 700;
+	public static final int APPLICATION_HEIGHT = 350;
 
 /** The number of dice in the game */
 	public static final int N_DICE = 5;
