@@ -102,7 +102,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		while(true) {
 			// Subtract 1 to align response with array
 			scCat = display.waitForPlayerToSelectCategory();
-			if (catAvail(plyr, scCat)) break;
+			if (isCatAvail(plyr, scCat)) break;
 			display.printMessage(SEL_DIF_CAT_MSG);
 		}
 		int score = calcScore(scCat);
@@ -129,7 +129,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
  * @param cat Category number
  * @return True if category is available, else false
  */
-	private boolean catAvail(int plyr, int cat) {
+	private boolean isCatAvail(int plyr, int cat) {
 		if (cat == UPPER_SCORE || cat == UPPER_BONUS || cat == LOWER_SCORE || cat == TOTAL) {
 			return false;
 		} else if (!isCatSet[plyr - 1][cat]) {
