@@ -44,9 +44,11 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		}
 	}
 	
+// Initializes point totals to 0
 	private void initPts() {
 		for (int i = 0; i < nPlayers; i++) {
 			upBonus[i] = 0;
+			upScore[i] = 0;
 			lowScore[i] = 0;
 			totScore[i] = 0;
 		}
