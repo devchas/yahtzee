@@ -118,11 +118,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 // Returns an array of the rolled dice results
 	private int[] rollDice(int roll) {
 		for (int i = 0; i < N_DICE; i++) {
-			if (roll == 0) {
-				dice[i] = rgen.nextInt(DIE_LOW, DIE_HIGH);
-			} else if (display.isDieSelected(i)){
-				dice[i] = rgen.nextInt(DIE_LOW, DIE_HIGH);
-			}
+			if (roll == 0 || display.isDieSelected(i)) dice[i] = rgen.nextInt(DIE_LOW, DIE_HIGH);
 		}
 		return dice;
 	}
